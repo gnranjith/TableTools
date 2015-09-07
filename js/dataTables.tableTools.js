@@ -2190,7 +2190,7 @@ TableTools.prototype = {
 
 			for ( i=0, iLen=dt.aoColumns.length ; i<iLen ; i++ )
 			{
-				if ( aColumnsInc[i] )
+				if ( dt.aoColumns[i].bVisible )
 				{
 					sLoopData = dt.aoColumns[i].sTitle.replace(/\n/g," ").replace( /<.*?>/g, "" ).replace(/^\s+|\s+$/g,"");
 					sLoopData = this._fnHtmlDecode( sLoopData );
@@ -2241,7 +2241,7 @@ TableTools.prototype = {
 			/* Columns */
 			for ( i=0, iLen=dt.aoColumns.length ; i<iLen ; i++ )
 			{
-				if ( aColumnsInc[i] )
+				if (dt.aoColumns[i].bVisible)
 				{
 					/* Convert to strings (with small optimisation) */
 					var mTypeData = dt.oApi._fnGetCellData( dt, aDataIndex[j], i, 'display' );
@@ -2296,7 +2296,7 @@ TableTools.prototype = {
 
 			for ( i=0, iLen=dt.aoColumns.length ; i<iLen ; i++ )
 			{
-				if ( aColumnsInc[i] && dt.aoColumns[i].nTf !== null )
+				if ( dt.aoColumns[i].bVisible && dt.aoColumns[i].nTf !== null )
 				{
 					sLoopData = dt.aoColumns[i].nTf.innerHTML.replace(/\n/g," ").replace( /<.*?>/g, "" );
 					sLoopData = this._fnHtmlDecode( sLoopData );
